@@ -8,12 +8,14 @@ namespace WarLight.Shared.AI
 {
     public static class BotFactory
     {
-        public static readonly string[] Names = new[] { "Wunderwaffe", "Prod", "ProdRandom", "Cowzow" };
+        public static readonly string[] Names = new[] { "PyBot", "Wunderwaffe", "Prod", "ProdRandom", "Cowzow" };
 
         public static IWarLightAI Construct(string name)
         {
             switch (name.ToLower())
             {
+				case "pybot":
+					return new PyBot.BotMain(false);
                 case "wunderwaffe":
                     return new Wunderwaffe.Bot.BotMain();
                 case "prod":
